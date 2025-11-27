@@ -19,14 +19,12 @@ export default async function ProductItem({params}: IProductDetailProps) {
 
 
     return (
-        <main>
-            <Container >
-                <img src={product.image} alt={product.title} />
-                <h2>{product.title}</h2>
-                <p>{product.description}</p>
-                <p>Price: {product.price} $</p>
-                <button className='bg-blue-400 rounded px-4 py-1.5 hover:cursor-pointer'>Add To Cart</button>
-            </Container>
-        </main>
+        <Container >
+            <img src={product.image} alt={product.title} />
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p>Price: {product.price} $</p>
+            <button className='bg-blue-400 rounded px-4 py-1.5 hover:cursor-pointer'>Add To Cart</button>
+        </Container>
     )
 }

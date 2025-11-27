@@ -56,24 +56,22 @@ export default function Home() {
     ]
 
     return (
-        <main>
-            <Container >
-                <section className="flex flex-col gap-4 mb-4">
-                    <h2>Best Ecommerce Site</h2>
-                    <p className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quasi incidunt reprehenderit pariatur maxime, ipsa deserunt repellendus quod reiciendis explicabo aspernatur odit fugit error, libero vitae similique exercitationem. Ad sequi sunt assumenda qui adipisci officia repellat blanditiis dolor vel voluptatem dolores eos, quod maiores. Porro fuga dignissimos, aliquid culpa eaque nihil cum at adipisci, impedit sint ut sed earum quam sapiente veritatis voluptatibus, id atque inventore sequi dolor qui eius unde. Accusamus illum quibusdam, voluptate officiis dolorum fugit voluptatibus perspiciatis? Officia porro sint non libero perferendis laboriosam culpa doloribus sapiente ad dolorum qui quia ut, molestiae nesciunt veritatis quis tempora?</p>
-                    <Link href='/products'>Shop Now</Link>
-                </section>
-                <section className=" flex flex-col gap-4">
-                    <h2>Latest Products</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-between">
-                      {
-                        cards.map((item) => {
-                          return <ProductCard key={item.id} {...item} />
-                        })
-                      }
-                    </div>
-                </section>
-            </Container>
-        </main>
+        <Container >
+            <section className="flex flex-col gap-4 mb-4">
+                <h2>Best Ecommerce Site</h2>
+                <p className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quasi incidunt reprehenderit pariatur maxime, ipsa deserunt repellendus quod reiciendis explicabo aspernatur odit fugit error, libero vitae similique exercitationem. Ad sequi sunt assumenda qui adipisci officia repellat blanditiis dolor vel voluptatem dolores eos, quod maiores. Porro fuga dignissimos, aliquid culpa eaque nihil cum at adipisci, impedit sint ut sed earum quam sapiente veritatis voluptatibus, id atque inventore sequi dolor qui eius unde. Accusamus illum quibusdam, voluptate officiis dolorum fugit voluptatibus perspiciatis? Officia porro sint non libero perferendis laboriosam culpa doloribus sapiente ad dolorum qui quia ut, molestiae nesciunt veritatis quis tempora?</p>
+                <Link href='/products'>Shop Now</Link>
+            </section>
+            <section className=" flex flex-col gap-4">
+                <h2>Latest Products</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5 justify-between">
+                  {
+                    cards.map((item) => {
+                      return <ProductCard key={item.id} {...item} />
+                    })
+                  }
+                </div>
+            </section>
+        </Container>
     );
 }
