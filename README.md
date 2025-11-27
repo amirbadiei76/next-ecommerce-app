@@ -23,3 +23,28 @@
    ```bash
    git clone https://github.com/amirbadiei76/next-ecommerce-app.git
    cd next-ecommerce-app
+
+2. نصب وابستگی‌ها:
+npm install
+# یا: pnpm install
+# یا: yarn
+
+3. اجرا در حالت توسعه:
+npm run dev
+
+4. اجرا در مرورگر:
+http://localhost:3000
+
+ساختار پوشه‌ای (خلاصه)
+src/
+ ├─ app/
+ │   ├─ layout.tsx
+ │   ├─ page.tsx
+ │   ├─ products/
+ │   │   ├─ page.tsx
+ │   │   └─ [id]/page.tsx
+ │   └─ cart/page.tsx
+ ├─ components/
+ │   ├─ layout/Header.tsx
+ │   └─ product/ProductCard.tsx
+ └─ styles/globals.css
