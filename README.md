@@ -59,14 +59,15 @@ src/
 ```
 
 ##  قدم بعدی (روز دوم)
-# 1)
+
+1)
 - وصل کردن API (مثلاً fakestoreapi.com یا dummyjson)
 
 - پیاده‌سازی Cart state (Zustand یا Context)
 
 - Add to cart / localStorage / SSR fetching
 
-# 2) کامپوننت منوی همبرگر کشویی (Drawer) — کد کامل و توضیحات
+2) کامپوننت منوی همبرگر کشویی (Drawer) — کد کامل و توضیحات
 
 این کامپوننت ساده، در Next.js (App Router) و Tailwind نوشته شده.  
 ویژگی‌ها:
