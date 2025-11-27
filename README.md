@@ -26,8 +26,8 @@
 
 2. نصب وابستگی‌ها:
 npm install
-# یا: pnpm install
-# یا: yarn
+یا: pnpm install
+یا: yarn
 
 3. اجرا در حالت توسعه:
 npm run dev
@@ -35,7 +35,7 @@ npm run dev
 4. اجرا در مرورگر:
 http://localhost:3000
 
-ساختار پوشه‌ای (خلاصه)
+## ساختار پوشه‌ای (خلاصه)
 src/
  ├─ app/
  │   ├─ layout.tsx
