@@ -57,3 +57,21 @@ src/
  │   └─ product/ProductCard.tsx
  └─ styles/globals.css
 ```
+
+##  قدم بعدی (روز دوم)
+# 1)
+- وصل کردن API (مثلاً fakestoreapi.com یا dummyjson)
+
+- پیاده‌سازی Cart state (Zustand یا Context)
+
+- Add to cart / localStorage / SSR fetching
+
+# 2) کامپوننت منوی همبرگر کشویی (Drawer) — کد کامل و توضیحات
+
+این کامپوننت ساده، در Next.js (App Router) و Tailwind نوشته شده.  
+ویژگی‌ها:
+- دکمه همبرگر که در موبایل نمایش داده می‌شود
+- کشویی (drawer) که از سمت `right` یا `left` باز می‌شود — قابل تنظیم با prop `side`
+- overlay نیمه‌شفاف برای کلیک‌خارجی و بستن
+- پشتیبانی از کلید `Escape` برای بستن
+- جلوگیری از scroll بدنه وقتی دراور باز است
