@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "@/components/shared/layout/Layout";
 import Header from "@/components/shared/layout/Header";
+import Footer from "@/components/shared/layout/Footer";
 
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
+        <Footer />
       </body>
     </html>
   );

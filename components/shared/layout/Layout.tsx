@@ -7,7 +7,7 @@ interface ILayoutProps {
 
 export default function Layout({ children } : ILayoutProps) {
     return (
-        <main>
+        <main className='py-4 md:py-8'>
             { children }
         </main>
     )
