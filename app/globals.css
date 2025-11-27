@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  
+  --theme-white: #f2f2f2;
+  --theme-black: #1a1a1a;
+
+  --light-theme: #eee;
+  --dark-theme: #333333;
+
+  --light-between: #b8b8b8;
+  --dark-between: #474747;
 }
 
 @theme inline {
@@ -10,17 +20,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-theme-white: var(--theme-white);
+  --color-theme-black: var(--theme-black);
+  
+  --color-light-theme: var(--light-theme);
+  --color-dark-theme: var(--dark-theme);
+
+  
+  --color-light-between: var(--light-between);
+  --color-dark-between: var(--dark-between);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--light-theme);
+  color: var(--theme-black);
   font-family: Arial, Helvetica, sans-serif;
 }
