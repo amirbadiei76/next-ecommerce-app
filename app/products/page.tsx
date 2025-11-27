@@ -1,6 +1,5 @@
 import ProductCard from '@/components/not-shared/product/ProductCard';
 import Container from '@/components/shared/layout/Container';
-import React from 'react'
 
 export default function Products() {
     const dummyProducts = [
