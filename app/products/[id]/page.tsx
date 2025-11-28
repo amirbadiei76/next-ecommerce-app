@@ -1,22 +1,22 @@
+import AddToCartBtn from '@/components/not-shared/cart/AddToCartBtn';
 import Container from '@/components/shared/layout/Container';
 import React from 'react'
 
 interface IProductDetailProps {
-    params: Promise<{id: number}>,
+    params: Promise<{id: string}>,
     searchParams: Promise<{}>
+}
+
+async function getProduct(id: string) {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    if (!res.ok) throw new Error("Failed to fetch product");
+    return res.json();
 }
 
 export default async function ProductItem({params}: IProductDetailProps) {
     const { id } = await params;
 
-    const product = {
-        id: id,
-        title: "Mock Product",
-        price: 49,
-        description: "This is a fake product for UI.",
-        image: "https://via.placeholder.com/400"
-    }
-
+    const product = await getProduct(id);
 
     return (
         <Container >
@@ -24,7 +24,7 @@ export default async function ProductItem({params}: IProductDetailProps) {
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>Price: {product.price} $</p>
-            <button className='bg-blue-400 rounded px-4 py-1.5 hover:cursor-pointer'>Add To Cart</button>
+            <AddToCartBtn product={product} />
         </Container>
     )
 }
