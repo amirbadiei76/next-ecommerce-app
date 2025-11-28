@@ -16,15 +16,20 @@ async function getProduct(id: string) {
 export default async function ProductItem({params}: IProductDetailProps) {
     const { id } = await params;
 
-    const product = await getProduct(id);
+    try {
+        const product = await getProduct(id);
 
-    return (
-        <Container >
-            <img src={product.image} alt={product.title} />
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-            <p>Price: {product.price} $</p>
-            <AddToCartBtn product={product} />
-        </Container>
-    )
+        return (
+            <Container >
+                <img src={product.image} alt={product.title} />
+                <h2>{product.title}</h2>
+                <p>{product.description}</p>
+                <p>Price: {product.price} $</p>
+                <AddToCartBtn product={product} />
+            </Container>
+        )
+    }
+    catch(e) {
+        return <div className="text-red-500">Failed to load product. Please try again later.</div>;
+    }
 }

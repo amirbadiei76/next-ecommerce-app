@@ -4,9 +4,12 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import MobileDrawer from "./MobileDrawer";
 import Container from './Container'
+import { useCartStore } from '@/store/CartStore';
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const count = useCartStore(state => state.items.reduce((s, i) => s + i.quantity, 0));
+  
 
     return (
         <header className="bg-white border-b py-4">
@@ -27,7 +30,10 @@ export default function Header() {
                             <Link href="/products" className="hover:underline">Products</Link>
                         </li>
                         <li>
-                            <Link href="/cart" className="hover:underline">Cart</Link>
+                            <Link href="/cart" className="hover:underline">
+                                Cart
+                                {count > 0 && <span className="ml-2 inline-block bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">{count}</span>}
+                            </Link>
                         </li>
                     </ul>
                 </nav>

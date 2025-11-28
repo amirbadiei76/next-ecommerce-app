@@ -11,13 +11,18 @@ export type TProductCard = {
 
 export default function ProductCard({ id, title, price, image }: TProductCard) {
     return (
-      <article className='bg-light-between flex flex-col items-center sm:items-start w-full justify-between gap-1.5 sm:gap-3 p-2 sm:p-4 border border-gray-500 rounded-md'>
-          <figure className='flex flex-col w-full'>
-              <img className='w-20 h-20 object-contain self-center' src={image} alt={title} />
-              <figcaption className='text-justify'>{title}</figcaption>
-          </figure>
-          <p>Price: {price} $</p>
-          <Link className='bg-blue-400 rounded px-4 self-center py-1.5 hover:bg-blue-500' href={`/products/${id}`}>View Details</Link>
+      <article className="bg-white rounded shadow hover:cursor-pointer">
+        <Link href={`/products/${id}`} className="flex flex-col justify-between h-full p-2 sm:p-4">
+          <div className="w-full h-48 relative mb-4">
+            <img className='object-contain w-full h-full' src={image} alt={title} />
+          </div>
+
+          <h3 className="text-sm text-justify font-medium mb-1 line-clamp-2">{title}</h3>
+          <div className="mt-auto flex items-center justify-between">
+            <span className="text-lg font-semibold">{price}$</span>
+            <button className="text-sm bg-indigo-600 text-white px-3 py-1 rounded">View</button>
+          </div>
+        </Link>
       </article>
     )
 }

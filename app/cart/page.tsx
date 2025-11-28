@@ -1,8 +1,8 @@
 "use client";
-import Container from '@/components/shared/layout/Container'
 
+import Container from '@/components/shared/layout/Container';
 import { useCartStore } from "@/store/CartStore";
-import React from 'react'
+
 
 export default function Cart() {
     const { items, removeFromCart, clearCart } = useCartStore();

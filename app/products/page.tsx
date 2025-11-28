@@ -9,20 +9,26 @@ async function getProducts() {
   
 
 export default async function Products() {
-    const products = await getProducts();
+    
+    try {
+        const products = await getProducts();
 
-    return (
-        <Container >
-            <section>
-                <h2 className="text-3xl font-bold mb-6">All Products</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {
-                        products.map((item: TProductCard) => {
-                            return <ProductCard key={item.id} {...item} />
-                        })
-                    }
-                </div>
-            </section>
-        </Container>
-    )
+        return (
+            <Container >
+                <section>
+                    <h2 className="text-3xl font-bold mb-6">All Products</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {
+                            products.map((item: TProductCard) => {
+                                return <ProductCard key={item.id} {...item} />
+                            })
+                        }
+                    </div>
+                </section>
+            </Container>
+        )
+    }
+    catch(e) {
+        return <div className="text-red-500">Failed to load products. Please try again later.</div>;
+    }
 }
