@@ -1,20 +1,22 @@
 import ProductCard, { TProductCard } from "@/components/not-shared/product/ProductCard";
 import Container from "@/components/shared/layout/Container";
+import ProductSkeleton from "@/components/shared/layout/ProductSkeleton";
+import { getLatestProducts } from "@/services/Products";
 import Link from "next/link";
 
-async function getProducts() {
-  const res = await fetch("https://fakestoreapi.com/products", { next: { revalidate: 60 } });
-  if (!res.ok) throw new Error("Failed to fetch products");
-  const data = await res.json();
-  return data;
-}
+export const metadata = {
+  title: "E-commerce App | Home",
+  description: "Buy the latest products with amazing discounts.",
+  openGraph: {
+    title: "E-commerce App",
+    description: "Explore our newest arrivals.",
+  },
+};
 
 export default async function Home() {
 
     try {
-        const products: TProductCard[] = await getProducts();
-        const latest = products.slice(-4).reverse();
-        
+        const products: TProductCard[] = await getLatestProducts();
     
         return (
             <Container >
@@ -31,9 +33,14 @@ export default async function Home() {
     
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5 justify-between">
                       {
-                        latest.map((item) => {
-                          return <ProductCard key={item.id} {...item} />
-                        })
+                        products === undefined ? 
+                        Array.from({ length: 6 }).map((_, i) => <ProductSkeleton key={i} />)
+                        :
+                        (
+                          products.map((item) => {
+                            return <ProductCard key={item.id} {...item} />
+                          })
+                        )
                       }
                     </div>
                 </section>
