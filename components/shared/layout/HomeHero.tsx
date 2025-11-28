@@ -12,7 +12,7 @@ type HeroData = {
   cta: string;
 };
 
-export default function HomePage() {
+export default function HomeHero() {
   const [hero, setHero] = useState<HeroData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

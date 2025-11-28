@@ -1,5 +1,7 @@
 import ProductCard, { TProductCard } from "@/components/not-shared/product/ProductCard";
 import Container from "@/components/shared/layout/Container";
+import { HeroSection } from "@/components/shared/layout/HeroSection";
+import HomeHero from "@/components/shared/layout/HomeHero";
 import ProductSkeleton from "@/components/shared/layout/ProductSkeleton";
 import { getLatestProducts } from "@/services/Products";
 import Link from "next/link";
@@ -20,11 +22,7 @@ export default async function Home() {
     
         return (
             <Container >
-                <section className="bg-gradient-to-r from-indigo-600 to-indigo-400 text-white rounded-lg gap-4 p-8 mb-6">
-                    <h2 className="text-4xl font-extrabold mb-4">Best Ecommerce Site</h2>
-                    <p className="text-justify mb-6 text-lg">Find the latest and greatest products — fast delivery, best prices.</p>
-                    <Link href='/products' className="inline-block bg-white text-indigo-700 px-5 py-2 rounded-md font-semibold">Shop Now</Link>
-                </section>
+                <HomeHero />
                 <section className=" flex flex-col gap-4">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-2xl font-bold">Latest Products</h2>
