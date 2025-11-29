@@ -1,33 +1,57 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export const useFetch = (url: string) => {
-    const [data, setData] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+export function useFetch<T = unknown>(url: string, options?: RequestInit) {
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const fetchData = async () => {
+  const isMounted = useRef(true);
 
-            setIsLoading(true)
+  useEffect(() => {
+    isMounted.current = true;
 
-            try {
-                const response = await fetch(url)
-                if(!response.ok){
-                    throw new Error(response.statusText)
-                }
-                const json = await response.json()
-                
-                setData(json)
-                setError(null)
-            } catch (err) {
-                err instanceof Error && setError(err.message)
-            }
-            finally {
-                setIsLoading(false)
-            }
+    const controller = new AbortController();
+
+    async function fetchData() {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const res = await fetch(url, {
+          ...options,
+          signal: controller.signal,
+        });
+
+        if (!res.ok) {
+          throw new Error(`Request failed with status ${res.status}`);
         }
-        fetchData()
-    }, [url])
 
-    return {data, isLoading, error}
+        const json = (await res.json()) as T;
+
+        if (isMounted.current) {
+          setData(json);
+        }
+      } catch (err) {
+        if (isMounted.current) {
+          if (err instanceof DOMException && err.name === "AbortError") {
+            return;
+          }
+          err instanceof DOMException && setError(err.message);
+        }
+      } finally {
+        if (isMounted.current) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    fetchData();
+
+    return () => {
+      isMounted.current = false;
+      controller.abort();
+    };
+  }, [url]);
+
+  return { data, isLoading, error };
 }

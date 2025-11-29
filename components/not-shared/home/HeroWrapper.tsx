@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { HeroSkeleton } from "./HeroSkeleton";
 import { HeroError } from "./HeroError";
 import { HeroSection } from "./HeroSection";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../shared/hooks/useFetch";
 
 type HeroData = {
   title: string;
@@ -14,7 +13,7 @@ type HeroData = {
 };
 
 export default function HeroWrapper() {
-  const { data: hero, error, isLoading } = useFetch('/api/hero');
+  const { data: hero, error, isLoading } = useFetch<HeroData>('/api/hero');
   
   if (isLoading) return <HeroSkeleton />;
   if (error) return <HeroError />;

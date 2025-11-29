@@ -1,6 +1,6 @@
 import ProductCard, { TProductCard } from '@/components/not-shared/product/ProductCard';
 import Container from '@/components/shared/layout/Container';
-import ProductSkeleton from '@/components/shared/layout/ProductSkeleton';
+import ProductSkeleton from '@/components/not-shared/product/ProductSkeleton';
 
 async function getProducts() {
     const res = await fetch("https://fakestoreapi.com/products");

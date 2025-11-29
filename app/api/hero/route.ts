@@ -6,7 +6,7 @@ export async function GET() {
       title: "Upgrade your sound",
       subtitle: "Best audio devices for your daily life",
       image: "/assets/images/hero/headphones.png",
-      cta: "Shop Now2",
+      cta: "Shop Now",
     };
 
     return NextResponse.json(hero, { status: 200 });

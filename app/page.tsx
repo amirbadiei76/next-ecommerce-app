@@ -1,8 +1,8 @@
-import HomeLatest from "@/components/not-shared/home/HomeLatest";
+import HomeLatest from "@/components/not-shared/home/LatestproductsWrapper";
 import ProductCard, { TProductCard } from "@/components/not-shared/product/ProductCard";
 import Container from "@/components/shared/layout/Container";
-import { HeroSection } from "@/components/shared/layout/HeroSection";
-import HomeHero from "@/components/shared/layout/HomeHero";
+import { HeroSection } from "@/components/not-shared/home/HeroSection";
+import HomeHero from "@/components/not-shared/home/HeroWrapper";
 import ProductSkeleton from "@/components/shared/layout/ProductSkeleton";
 import { getLatestProducts } from "@/services/Products";
 import Link from "next/link";
